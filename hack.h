@@ -18,7 +18,7 @@ namespace Hack
 	const int casinoKeypad       = 0x6A690;
 	const int arcadeVaultDoor    = 0x3B90;
 	const int arcadeFingerprint  = 0x7098;
-	const int arcadeKeypad       = 0x8FC0;
+	const int arcadeKeypad       = 0x8FC0; 
 
 	extern bool isPericoPlasmaCutterAutoFinish;
 

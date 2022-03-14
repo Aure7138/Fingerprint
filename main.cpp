@@ -119,7 +119,7 @@ int main()
 			case '4':
 			{
 				const WCHAR szOperation[] = L"open";
-				const WCHAR szAddress[] =  L"https://www.baidu.com/";
+				const WCHAR szAddress[] =  L"https://www.unknowncheats.me/forum/grand-theft-auto-v/492935-gta5-external-fingerprint-menu.html#post3389282";
 				HINSTANCE hRslt = ShellExecute(NULL, szOperation,
 					szAddress, NULL, NULL, SW_SHOWNORMAL);
 				assert(hRslt > (HINSTANCE)HINSTANCE_ERROR);
@@ -128,7 +128,7 @@ int main()
 			case '5':
 			{
 				const WCHAR szOperation[] = L"open";
-				const WCHAR szAddress[] = L"https://www.baidu.com/";
+				const WCHAR szAddress[] = L"https://github.com/Aure7138/Fingerprint";
 				HINSTANCE hRslt = ShellExecute(NULL, szOperation,
 					szAddress, NULL, NULL, SW_SHOWNORMAL);
 				assert(hRslt > (HINSTANCE)HINSTANCE_ERROR);
