@@ -33,3 +33,4 @@
 
 # ignore target folder
 .vs/
+x64/
