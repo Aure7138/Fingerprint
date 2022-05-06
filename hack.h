@@ -6,19 +6,22 @@ namespace Hack
 {
 	extern int keyFingerprintCrack            ;
 	extern int keyKeypadCrack                 ;
-	extern int keyVaultDoorQuicklyOpen_Normal ;
-	extern int keyVaultDoorQuicklyOpen_Hard   ;
+	extern int keyVaultDoorQuicklyOpen;
 
-	const int pericoPlasmaCutter = 0x373A0;
-	const int pericoIncome       = 0x50858;
-	const int pericoFingerprint  = 0x2EBF0;
-	const int casinoIncome       = 0x2B2D8;
-	const int casinoVaultDoor    = 0x133E8;
-	const int casinoFingerprint  = 0x68560;
-	const int casinoKeypad       = 0x6A690;
-	const int arcadeVaultDoor    = 0x3B90;
-	const int arcadeFingerprint  = 0x7098;
-	const int arcadeKeypad       = 0x8FC0; 
+	const int pericoPlasmaCutter = 8 * (28269 + 3);
+	const int pericoIncome       = 8 * (40004 + 1392 + 53);
+	const int pericoFingerprint  = 0x2EBD0;
+
+	const int casinoIncome       = 8 * (19652 + 2685);
+	const int casinoVaultDoor    = 8 * (10068 + 7);
+	const int casinoVaultDoorMax = 8 * (10068 + 37);
+	const int casinoFingerprint  = 0x68CA0;
+	const int casinoKeypad       = 0x6ADD0;
+
+	const int arcadeVaultDoor    = 0x3AE8;
+	const int arcadeVaultDoorMax = 0x3BD8;
+	const int arcadeFingerprint  = 0x6FF0;
+	const int arcadeKeypad       = 0x8F18;
 
 	extern bool isPericoPlasmaCutterAutoFinish;
 
@@ -29,12 +32,10 @@ namespace Hack
 	void setPericoIncome(int value);
 	void pericoFingerprintCrack();
 	void setCasinoIncome(int value);
-	void casinoVaultDoorQuicklyOpen_Normal();
-	void casinoVaultDoorQuicklyOpen_Hard();
+	void casinoVaultDoorQuicklyOpen();
 	void casinoFingerprintCrack();
 	void casinoKeypadCrack();
-	void arcadeVaultDoorQuicklyOpen_Normal();
-	void arcadeVaultDoorQuicklyOpen_Hard();
+	void arcadeVaultDoorQuicklyOpen();
 	void arcadeFingerprintCrack();
 	void arcadeKeypadCrack();
 

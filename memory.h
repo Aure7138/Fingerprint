@@ -13,7 +13,6 @@ extern DWORD        g_dwProcessId;
 extern HANDLE       g_hProcess;
 extern ModuleStruct moduleStruct;
 
-extern DWORD64 GlobalPTR;
 extern DWORD64 LocalScriptsPTR;
 
 DWORD        getProcessId(LPCWSTR processName);

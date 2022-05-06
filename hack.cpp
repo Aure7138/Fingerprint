@@ -1,11 +1,11 @@
 #include "hack.h"
-
+#include <string>
+#include <string.h>
 namespace Hack
 {
 	int keyFingerprintCrack = 116;
 	int keyKeypadCrack = 117;
-	int keyVaultDoorQuicklyOpen_Normal = 118;
-	int keyVaultDoorQuicklyOpen_Hard = 119;
+	int keyVaultDoorQuicklyOpen = 118;
 
 	bool isPericoPlasmaCutterAutoFinish = false;
 
@@ -35,16 +35,10 @@ namespace Hack
 			arcadeKeypadCrack();
 			return;
 		}
-		if (checkKeyState(keyVaultDoorQuicklyOpen_Normal))
+		if (checkKeyState(keyVaultDoorQuicklyOpen))
 		{
-			casinoVaultDoorQuicklyOpen_Normal();
-			arcadeVaultDoorQuicklyOpen_Normal();
-			return;
-		}
-		if (checkKeyState(keyVaultDoorQuicklyOpen_Hard))
-		{
-			casinoVaultDoorQuicklyOpen_Hard();
-			arcadeVaultDoorQuicklyOpen_Hard();
+			casinoVaultDoorQuicklyOpen();
+			arcadeVaultDoorQuicklyOpen();
 			return;
 		}
 	}
@@ -83,19 +77,12 @@ namespace Hack
 		p = re<DWORD64>(p);
 		wr<int>(p + casinoIncome, value);
 	}
-	void casinoVaultDoorQuicklyOpen_Normal()
+	void casinoVaultDoorQuicklyOpen()
 	{
 		DWORD64 p = getLocalScript((char*)"fm_mission_controller");
 		if (p == 0) return;
 		p = re<DWORD64>(p);
-		wr<int>(p + casinoVaultDoor, 4);
-	}
-	void casinoVaultDoorQuicklyOpen_Hard()
-	{
-		DWORD64 p = getLocalScript((char*)"fm_mission_controller");
-		if (p == 0) return;
-		p = re<DWORD64>(p);
-		wr<int>(p + casinoVaultDoor, 6);
+		wr<int>(p + casinoVaultDoor, re<int>(p + casinoVaultDoorMax));
 	}
 	void casinoFingerprintCrack()
 	{
@@ -120,9 +107,12 @@ namespace Hack
 		if (p == 0) return;
 		p = re<DWORD64>(p);
 		int currentGroup = re<int>(p + casinoKeypad + 0x10);
-		if(currentGroup < 2) wr<int>(p + arcadeKeypad + 0x10, 2);
+		if (currentGroup < 2)
+		{
+			wr<int>(p + casinoKeypad + 0x10, 2);
+			currentGroup = 2;
+		}
 		wr<int>(p + casinoKeypad + 0x18, 5);
-		if (currentGroup < 2) currentGroup = 2;
 		for (int i = 0; i < 5; i++)
 		{
 			for (int j = 0; j < 5; j++)
@@ -141,19 +131,12 @@ namespace Hack
 			}
 		}
 	}
-	void arcadeVaultDoorQuicklyOpen_Normal()
+	void arcadeVaultDoorQuicklyOpen()
 	{
 		DWORD64 p = getLocalScript((char*)"am_mp_arc_cab_manager");
 		if (p == 0) return;
 		p = re<DWORD64>(p);
-		wr<int>(p + casinoVaultDoor, 4);
-	}
-	void arcadeVaultDoorQuicklyOpen_Hard()
-	{
-		DWORD64 p = getLocalScript((char*)"am_mp_arc_cab_manager");
-		if (p == 0) return;
-		p = re<DWORD64>(p);
-		wr<int>(p + casinoVaultDoor, 6);
+		wr<int>(p + arcadeVaultDoor, re<int>(p + arcadeVaultDoorMax));
 	}
 	void arcadeFingerprintCrack()
 	{

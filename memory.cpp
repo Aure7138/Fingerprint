@@ -4,7 +4,6 @@ DWORD        g_dwProcessId;
 HANDLE       g_hProcess;
 ModuleStruct moduleStruct;
 
-DWORD64 GlobalPTR;
 DWORD64 LocalScriptsPTR;
 
 DWORD getProcessId(LPCWSTR processName)

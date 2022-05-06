@@ -37,15 +37,13 @@ int main()
 		f.close();
 		Hack::keyFingerprintCrack            = GetPrivateProfileInt(L"HotKeys", L"FingerprintCrack", 116, str.c_str());
 		Hack::keyKeypadCrack                 = GetPrivateProfileInt(L"HotKeys", L"KeypadCrack", 117, str.c_str());
-		Hack::keyVaultDoorQuicklyOpen_Normal = GetPrivateProfileInt(L"HotKeys", L"VaultDoorQuicklyOpen_Normal", 118, str.c_str());
-		Hack::keyVaultDoorQuicklyOpen_Hard   = GetPrivateProfileInt(L"HotKeys", L"VaultDoorQuicklyOpen_Hard", 119, str.c_str());
+		Hack::keyVaultDoorQuicklyOpen = GetPrivateProfileInt(L"HotKeys", L"VaultDoorQuicklyOpen", 118, str.c_str());
 	}
 	else
 	{
 		WritePrivateProfileString(L"HotKeys", L"FingerprintCrack", L"116", str.c_str());
 		WritePrivateProfileString(L"HotKeys", L"KeypadCrack", L"117", str.c_str());
-		WritePrivateProfileString(L"HotKeys", L"VaultDoorQuicklyOpen_Normal", L"118", str.c_str());
-		WritePrivateProfileString(L"HotKeys", L"VaultDoorQuicklyOpen_Hard", L"119", str.c_str());
+		WritePrivateProfileString(L"HotKeys", L"VaultDoorQuicklyOpen", L"118", str.c_str());
 	}
 
 	g_dwProcessId   = getProcessId(L"GTA5.exe");
@@ -62,7 +60,6 @@ int main()
 	LocalScriptsPTR = LocalScriptsPTR + re<int>(LocalScriptsPTR + 3) + 7;
 	std::cout << "ModuleBaseAddr :" << std::hex << moduleStruct.addr << std::endl;
 	std::cout << "ModuleBaseSize :" << std::hex << moduleStruct.size << std::endl;
-	std::cout << "GlobalPTR      :" << std::hex << GlobalPTR << std::endl;
 	std::cout << "LocalScriptsPTR:" << std::hex << LocalScriptsPTR << std::endl;
 	std::cout << "\n";
 	CreateThread(NULL, 0, threadHotKeys   , NULL, 0, nullptr);
@@ -70,8 +67,7 @@ int main()
 	std::cout << "\n";
 	std::cout << "Fingerprint Crack                    :" << std::dec << Hack::keyFingerprintCrack << std::endl;
 	std::cout << "Keypad Crack                         :" << std::dec << Hack::keyKeypadCrack << std::endl;
-	std::cout << "Vault Door Quickly Open (Normal Mode):" << std::dec << Hack::keyVaultDoorQuicklyOpen_Normal << std::endl;
-	std::cout << "Vault Door Quickly Open (Hard Mode)  :" << std::dec << Hack::keyVaultDoorQuicklyOpen_Hard << std::endl;
+	std::cout << "Vault Door Quickly Open              :" << std::dec << Hack::keyVaultDoorQuicklyOpen << std::endl;
 	std::cout << "\n";
 
 	std::cout << "\n";
@@ -144,15 +140,13 @@ int main()
 		system("cls");
 		std::cout << "ModuleBaseAddr :" << std::hex << moduleStruct.addr << std::endl;
 		std::cout << "ModuleBaseSize :" << std::hex << moduleStruct.size << std::endl;
-		std::cout << "GlobalPTR      :" << std::hex << GlobalPTR << std::endl;
 		std::cout << "LocalScriptsPTR:" << std::hex << LocalScriptsPTR << std::endl;
 		std::cout << "\n";
 
 		std::cout << "\n";
 		std::cout << "Fingerprint Crack                    :" << std::dec << Hack::keyFingerprintCrack << std::endl;
 		std::cout << "Keypad Crack                         :" << std::dec << Hack::keyKeypadCrack << std::endl;
-		std::cout << "Vault Door Quickly Open (Normal Mode):" << std::dec << Hack::keyVaultDoorQuicklyOpen_Normal << std::endl;
-		std::cout << "Vault Door Quickly Open (Hard Mode)  :" << std::dec << Hack::keyVaultDoorQuicklyOpen_Hard << std::endl;
+		std::cout << "Vault Door Quickly Open              :" << std::dec << Hack::keyVaultDoorQuicklyOpen << std::endl;
 		std::cout << "\n";
 
 		std::cout << "\n";
