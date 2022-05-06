@@ -56,13 +56,9 @@ int main()
 	}
 	g_hProcess      = OpenProcess(PROCESS_ALL_ACCESS, FALSE, g_dwProcessId);
 	moduleStruct    = getModuleStruct(g_dwProcessId, L"GTA5.exe");
-	GlobalPTR       = patternScan(moduleStruct.addr, moduleStruct.size, (char*)"\x4C\x8D\x05\x00\x00\x00\x00\x4D\x8B\x08\x4D\x85\xC9\x74\x11", (char*)"xxx????xxxxxxxx");
+	
 	LocalScriptsPTR = patternScan(moduleStruct.addr, moduleStruct.size, (char*)"\x48\x8B\x05\x00\x00\x00\x00\x8B\xCF\x48\x8B\x0C\xC8\x39\x59\x68", (char*)"xxx????xxxxxxxxx");
-	//if (GlobalPTR == 0 || LocalScriptsPTR == 0)
-	//{
-	//	MessageBox(GetConsoleWindow(), L"Please run with Administrator permissions", L"PatternScan failed", MB_OK);
-	//}
-	GlobalPTR       = GlobalPTR + re<int>(GlobalPTR + 3) + 7;
+
 	LocalScriptsPTR = LocalScriptsPTR + re<int>(LocalScriptsPTR + 3) + 7;
 	std::cout << "ModuleBaseAddr :" << std::hex << moduleStruct.addr << std::endl;
 	std::cout << "ModuleBaseSize :" << std::hex << moduleStruct.size << std::endl;

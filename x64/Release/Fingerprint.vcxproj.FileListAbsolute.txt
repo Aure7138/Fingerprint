@@ -1,1 +1,2 @@
 D:\Source\C++\Fingerprint\x64\Release\Fingerprint.exe
+D:\Grand Theft Auto V Workspace\Github\Aure7138\Fingerprint\x64\Release\Fingerprint.exe
