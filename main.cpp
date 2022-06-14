@@ -32,7 +32,7 @@ void showMenu()
 	std::cout << "\n";
 	std::cout << "Fingerprint Crack                    :" << std::dec << Hack::keyFingerprintCrack << std::endl;
 	std::cout << "Keypad Crack                         :" << std::dec << Hack::keyKeypadCrack << std::endl;
-	std::cout << "Casino Vault Door Quickly Open       :" << std::dec << Hack::keyVaultDoorQuicklyOpen << std::endl;
+	std::cout << "Vault Door Quickly Open              :" << std::dec << Hack::keyVaultDoorQuicklyOpen << std::endl;
 	std::cout << "Finish Perico sewer cutting          :" << std::dec << Hack::keySewerCutting << std::endl;
 	std::cout << "\n";
 
@@ -142,7 +142,7 @@ int main()
 				std::cout << "Enter Perico Mission Life:";
 				int m;
 				std::cin >> m;
-				Hack::setPericoIncome(m);
+				Hack::setPericoMissionLife(m);
 				break;
 			}
 			case '7':
@@ -192,6 +192,7 @@ DWORD WINAPI threadScriptLoad(LPVOID lpParam)
 {
 	while (true)
 	{
+		if (getProcessId(L"GTA5.exe") == 0) exit(0);
 		Hack::arcadePTR = Hack::getLocalScript((char*)"am_mp_arc_cab_manager");
 		Hack::casinoPTR = Hack::getLocalScript((char*)"fm_mission_controller");
 		Hack::pericoPTR = Hack::getLocalScript((char*)"fm_mission_controller_2020");
